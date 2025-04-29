@@ -277,6 +277,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // Update score
         currentscore += value;
+        console.log("currentscore: " + currentscore);
         updateScoreDisplay();
 
         // Show points gained feedback
@@ -380,6 +381,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             // Calculate final stats
             let finalScore = currentscore;
+            console.log("finalScore: " + finalScore);
             const totalAnswers = good_answers + wrong_answers;
             const accuracy = totalAnswers > 0 ? good_answers / totalAnswers : 0;
             const timetakenSeconds = initialTimerValue - timer;

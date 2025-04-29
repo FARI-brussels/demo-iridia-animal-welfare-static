@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<title>FARI - Animal welfare</title>
+<link rel = "icon" href ="img/marker.png" type = "image/x-icon">
+<html lang="en">
+<head>
+    <!-- We need jQuery for OpenLayers compatibility, keeping it for now -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div>
+        <h1 id="wintxt" class="wintext">+100</h1>
+        <h1 id="scoretxt" class="scoretext">Score : 0</h1>
+        <h1 id="timer" class="timetext">Time : 0</h1>
+        <h1 class="quit"><a class="quitext" id="quit" href="index.html">Try again</a></h1>
+    </div>
+
+    <div class="topbar">
+        <img class="logo" src="img/logo.png" alt="FARI Institute">
+        <ul>
+            <li><a id="home" href="index.html">Rules</a></li>
+            <li class="current"><a  id="playy" href="static_play.html">Play</a></li>
+            <li><a  id="leader" href="static_leaderboard.html">Leaderboard</a></li>
+        </ul>
+    </div>
+
+    <div id="slider" class="slide"></div>
+    <div id="m" class="map"></div>
+    <div id="marker" title="Marker"></div>
+
+    <div id="popup" class="popup">
+        <h1>Game over</h1>
+        <p>Your score : <b id="show_score"></b> | Your accuracy : <b id="show_acc"></b> </p>
+        <p>AI score : <b id="show_score_AI"></b> | AI accuracy : <b id="show_acc_AI"></b> </p>
+
+        <p class="popup-text">
+        As you have seen the algorithm is quicker than human.<br>
+        Indeed, you took <b id="show_time"></b> to classify the adds, the algo took <b>6 seconds</b>.<br> <br>
+        The main advantage of this algorithm is on the one hand its speed of execution for the verifications compared to a human and on the other hand its reliability for the classification of data.
+        </p>
+        <br>
+        <p><b>Choose an username:</b></p>
+
+        <input class="username" type="text" id="username" name="username">
+        <!-- Note: Saving to leaderboard requires server-side logic or Netlify functions -->
+        <a id="button" class="but_save" href="static_leaderboard.html">Save Score (Local)</a>
+        <br>
+        <br>
+        <br>
+    </div>
+
+    <audio id="audio_win" src="audio/win.mp3"></audio>
+    <audio id="audio_lose" src="audio/lose.mp3"></audio>
+    <audio id="audio_click" src="audio/ai_click.mp3"></audio>
+
+    <script src="js/OpenLayers.js"></script>
+    <!-- We will move the script logic to a separate JS file later -->
+    <script src="js/play.js"></script>
+</body>
+</html> 

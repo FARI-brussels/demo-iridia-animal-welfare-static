@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<title>FARI - Animal welfare</title>
+<link rel = "icon" href ="img/marker.png" type = "image/x-icon">
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body style="overflow-y: hidden;">
+
+    <div class="topbar">
+        <img class="logo" src="img/logo.png" alt="FARI Institute">
+        <ul>
+            <li><a id="home" href="index.html">Rules</a></li>
+            <li><a id="playy" href="static_play.html">Play</a></li>
+            <li class="current"><a id="leader" href="static_leaderboard.html">Leaderboard</a></li>
+        </ul>
+    </div>
+
+
+    <div class="score">
+        <br>
+        <h3 id="titlescore" class="titlescore">Name | Score</h3>
+        <div class="scroll-leaderboard">
+            <ul id="leaderboard">
+                <!-- Leaderboard items will be loaded dynamically by JavaScript -->
+            </ul>
+        </div>
+        <div class="center">
+            <!-- This button might reset local storage or just navigate -->
+            <a id="button_again" class="but_play" href="static_play.html">Play again</a>
+        </div>
+    </div>
+
+    <!-- We will move the script to a separate JS file later -->
+    <script src="js/leaderboard.js"></script>
+</body>
+</html> 

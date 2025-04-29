@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<title>FARI - Animal welfare</title>
+<link rel = "icon" href ="img/marker.png" type = "image/x-icon">
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body style="overflow-y: hidden;">
+    <div class="topbar">
+        <img class="logo" src="img/logo.png" alt="FARI Institute">
+        <ul>
+            <li class="current"><a id="home" href="index.html">Rules</a></li>
+            <li><a id="playy" href="static_play.html">Play</a></li>
+            <li><a id="leader" href="static_leaderboard.html">Leaderboard</a></li>
+        </ul>
+    </div>
+
+
+    <div class="mainRules">
+        <br>
+
+        <select id="language" class="select_lang">
+            <option value="EN">EN</option>
+            <option value="FR">FR</option>
+            <option value="NL">NL</option>
+        </select>
+
+
+        <div class="title">
+            <h1 id="title">Animal well-being</h1>
+        </div>
+
+
+        <div class="divRules">
+            <p class="subtitle"><b id="prob">Problematic</b></p>
+            <small id="rule1">
+                <b>Every day hundreds of animals are sold online in Belgium.</b> Given the large volume of ads that this represents, it seems inconceivable for a
+                human to control each and every one of the ads posted. This is where artificial intelligence enters the game!
+            </small>
+            <p class="subtitle"><b id="rule2">Rules</b></p>
+            <small id="rule3">
+                The goal of this game is simple, you will have to <b>classify the ads that sell animals</b> into two categories, legal ads and illegal ads.
+                <br>
+                To do this, you'll have to <b>analyze the image and description of the ad</b> to see if it respects the legislation.
+                <br>
+            </small>
+            <small>
+                <div id="rule4">
+                    <b>To be legal</b>, an ad selling an animal online must respect all the following characteristics:
+                </div>
+                <ul class="ruleslist">
+                    <li id="rule5" class="ruletext">
+                        The description must contain the following legal mention:
+                        <i>'An animal is a sentient living being and not a toy.
+                        The purchase or adoption of an animal is done in full awareness of the responsibilities of its new owner.
+                        Abandonment or negligence of an animal is an offence subject to criminal or administrative prosecution.'</i>
+                    </li>
+                    <br>
+                    <li id="rule6" class="ruletext">
+                        All ads must include a unique approval number for the seller, which always begins with the two letters HK.
+                    </li>
+                    <br>
+                    <li id="rule7" class="ruletext">
+                        The image of the ad can only contain one single animal and vendors can only sell one animal per ad.
+                    </li>
+                    <br>
+                    <li id="rule8" class="ruletext">
+                        The ad must be published from the Brussels region or Flanders, so it cannot be published from Wallonia.
+                    </li>
+                    <br>
+                    <li id="rule9" class="ruletext">
+                        It is strictly forbidden to sell animals on Facebook Marketplace.
+                    </li>
+                </ul>
+                <div id="rule10">
+                    You will <b>earn points</b> based on the <b>number of correctly classified ads</b> and the <b>time you took</b> to complete the task.
+                    You will be able to compare your score to other players as well as to the algorithm that takes care of this task in practice.
+                    <br>
+                    <br>
+                    <b>During this game, you will be able to compare your results with those obtained by the FARI algorithm.</b> This algorithm uses artificial intelligence technologies such as image recognition or natural language processing. In addition,
+                    the criteria presented above are a simplification of reality, in practice this algorithm is based on a dozen criteria to classify the ads for selling animals online.
+                </div>
+                <br>
+                <br>
+            </small>
+        </div>
+
+        <div class="divRules">
+            <div class="adexample">
+                <div class='markerRules' style="box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.2);">
+                    <h2 id="example1">Title of ad</h2>
+                    <img class='imagRules' src='img/animals/9.png' alt=''>
+                    <br>
+                    <small>
+                    <p class='description'>
+                        <p id="example2" class="adtext">Seller</p>
+                        <p id="example3"class="adtext">Description</p>
+                        <p id="example4"class="adtext">HK number</p>
+                        <p id="example5" class="adtext">Website</p>
+                        <p id="example6"class="adtext">Location</p>
+                    </p>
+                    </small>
+                    <input type='button' class='but_legal' value='Legal' onclick=''>
+                    <input type='button' class='but_illegal' value='Illegal' onclick=''>
+                    <br>
+                    <br>
+                </div>
+            </div>
+            <br>
+        </div>
+
+
+        <select id="difficulty" class="select_diff">
+            <option id="eazy" value="0">Eazy</option>
+            <option id="normal" value="1">Normal</option>
+            <option id="hard" value="2">Hard</option>
+        </select>
+        <br>
+        <br>
+        <a id="button" class="but_play" href="static_play.html">Play</a>
+
+    </div>
+
+
+    <div class="legend">
+        <small id="legend">This project was developed by Julien Baudru under the supervision of the FARI Institute.</small>
+    </div>
+
+    <!-- We will move the script to a separate JS file later -->
+    <script src="js/rules.js"></script>
+</body>
+</html> 

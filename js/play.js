@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (!answeredSet.has(ads[i]['id'])) { // Only add if not already answered
                 const feature = new OpenLayers.Feature.Vector(
                     new OpenLayers.Geometry.Point(ads[i]['lat'], ads[i]['long']).transform(epsg4326, projectTo),
-                    { description: [ads[i]['description'], ads[i]['id'], ads[i]['error'], ads[i]['whereError']] },
+                    { description: [ads[i]['description'], ads[i]['id'], ads[i]['error'], ads[i]['whereError'], ads[i]['legal']] },
                     { externalGraphic: 'img/marker.png', graphicHeight: 40, graphicWidth: 40, graphicXOffset: -12, graphicYOffset: -25 }
                 );
                 vectorLayer.addFeatures(feature);
@@ -197,11 +197,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         if(legalButton) {
              // Check if the ad is ACTUALLY legal based on rules (this is complex, using a placeholder)
-            const isTrulyLegal = checkAdLegality(feature.attributes.description); // Placeholder - implement this
+            const isTrulyLegal = feature.attributes.description[4]
             legalButton.onclick = () => doAction(isTrulyLegal ? 100 : 0, adId); // 100 points if correct, 0 if wrong
         }
         if(illegalButton) {
-            const isTrulyLegal = checkAdLegality(feature.attributes.description);
+            const isTrulyLegal = feature.attributes.description[4]
             illegalButton.onclick = () => doAction(isTrulyLegal ? 0 : 100, adId); // 100 points if correct, 0 if wrong
         }
 
@@ -212,19 +212,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Placeholder function - needs implementation based on rules defined in rules.html
     function checkAdLegality(adAttributes) {
-        // adAttributes = [descriptionHTML, id, errorText, whereErrorSteps]
-        // Logic needed here to parse descriptionHTML, check image rules (hard without image analysis),
-        // check location, HK number presence, legal mention etc.
-        // Returning true for now, meaning all ads are marked legal by default.
-        // This NEEDS to be implemented correctly for the game logic to work.
-        console.warn("checkAdLegality is a placeholder. Implement rule checking!");
-        // Example check based on the error field structure provided in the data:
-        const errorReason = adAttributes[2];
-        // Add safety check for errorReason being a string
-        if (typeof errorReason === 'string') {
-            return errorReason.toLowerCase().includes("this ad is legal"); // Basic check
-        }
-        console.warn(`Ad ID ${adAttributes[1]} missing valid error reason.`);
         return false; // Default to illegal if error reason is missing/invalid
     }
 
@@ -277,7 +264,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // Update score
         currentscore += value;
-        console.log("currentscore: " + currentscore);
         updateScoreDisplay();
 
         // Show points gained feedback
@@ -435,7 +421,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             setTimeout(() => {
                 const ad = ads[i];
                 // Construct the array expected by checkAdLegality
-                const adAttributesForCheck = [ad.description, ad.id, ad.error, ad.whereError];
+                const adAttributesForCheck = [ad.description, ad.id, ad.error, ad.whereError, ad.legal];
                 const isTrulyLegal = checkAdLegality(adAttributesForCheck); // Use the constructed array
                 let pointsAwarded = 0;
 
